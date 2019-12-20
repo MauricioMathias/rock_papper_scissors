@@ -2,6 +2,9 @@
 <html lang="pt-BR">
     <body>
         <script>
+            
+            //This function create a random number between 0 and 3 and returns 
+            //"Rock" || "Scissors" || "Paper" 
             function computerPlay() {
                 let randomPlay = Math.floor(Math.random() * 3);
                 switch (randomPlay) {
@@ -17,9 +20,40 @@
                 }
             }
 
-            function playRound(playerSelection, computerSelection) {
-                return "Worked";
+            //This function play the round PLAYER vs. COMPUTER and outputs the winner.
+            function playRound(playerSelection, computerSelection = computerPlay()) {
+                playerSelection = playerSelection.toLowerCase();
+                computerSelection = computerSelection.toLowerCase();
+
+                if (playerSelection === computerSelection){
+                    return "It's a TIE!!";
+                } else if (playerSelection === "rock"){
+                    switch (computerSelection) {
+                        case "paper":
+                            return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
+                            break;
+                        case "scissors":
+                            return "You win because " + playerSelection + " beats " + computerSelection +"!";  
+                    }
+                } else if (playerSelection === "paper"){
+                    switch (computerSelection) {
+                        case "scissors":
+                            return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
+                            break;
+                        case "rock":
+                            return "You win because " + playerSelection + " beats " + computerSelection +"!";  
+                    }
+                } else if (playerSelection === "scissors"){
+                    switch (computerSelection) {
+                        case "rock":
+                            return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
+                            break;
+                        case "paper":
+                            return "You win because " + playerSelection + " beats " + computerSelection +"!";  
+                    }
+                }
             }
+            
         </script>
     </body>
 </html>
