@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+    </head>
     <body>
         <script>
             
@@ -19,9 +22,16 @@
                         break;
                 }
             }
+            
+            //This function ask the player witch option he chooses
+            function playerPlay() {
+                const play = window.prompt("Rock, Scissors or Paper?"); 
+                 return play;
+            }
 
             //This function play the round PLAYER vs. COMPUTER and outputs the winner.
-            function playRound(playerSelection, computerSelection = computerPlay()) {
+            //playerSelection MUST be "Rock" || "Scissors" || "Paper". It's not case sensitive.
+            function playRound(playerSelection = playerPlay(), computerSelection = computerPlay()) {
                 playerSelection = playerSelection.toLowerCase();
                 computerSelection = computerSelection.toLowerCase();
 
@@ -54,6 +64,9 @@
                 }
             }
             
+            function game() {
+                
+            }
         </script>
     </body>
 </html>
