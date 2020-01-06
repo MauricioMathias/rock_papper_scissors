@@ -29,6 +29,9 @@
                  return play;
             }
 
+
+            let playerScore = 0;
+            let computerScore = 0;
             //This function play the round PLAYER vs. COMPUTER and outputs the winner.
             //playerSelection MUST be "Rock" || "Scissors" || "Paper". It's not case sensitive.
             function playRound(playerSelection = playerPlay(), computerSelection = computerPlay()) {
@@ -40,37 +43,51 @@
                 } else if (playerSelection === "rock"){
                     switch (computerSelection) {
                         case "paper":
+                            computerScore++;
                             return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
                             break;
                         case "scissors":
+                            playerScore++;
                             return "You win because " + playerSelection + " beats " + computerSelection +"!";  
                     }
                 } else if (playerSelection === "paper"){
                     switch (computerSelection) {
                         case "scissors":
+                            computerScore++;                            
                             return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
                             break;
                         case "rock":
+                            playerScore++;
                             return "You win because " + playerSelection + " beats " + computerSelection +"!";  
                     }
                 } else if (playerSelection === "scissors"){
                     switch (computerSelection) {
                         case "rock":
+                            computerScore++;
                             return "Sorry, you lost because " + computerSelection + " beats " + playerSelection +"!";
                             break;
                         case "paper":
+                            playerScore++;
                             return "You win because " + playerSelection + " beats " + computerSelection +"!";  
                     }
                 }
             }
             
+            //This function will play the game 5 times, who gets more points
+            // this 5 times, win the game.
             function game() {
                 for (let i = 0; i < 5; i++) {
                     const player = playerPlay();
                     const computer = computerPlay();
 
-                    console.log(playRound(player, computer));
-                    
+                    console.log(playRound(player, computer));                    
+                }
+
+                if (playerScore > computerScore) {
+                    //this function runs only 5 times, so wont be ties
+                    console.log("You win, you scored " + playerScore + " points!");
+                } else {
+                    console.log("You lost, the machine revolution began with " + computerScore ." points!");
                 }            
             }
         </script>
