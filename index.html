@@ -65,7 +65,14 @@
             }
             
             function game() {
-                
+                for (let i = 0; i < 5; i++) {
+                    const player = playerPlay();
+                    const computer = computerPlay();
+
+                    result = playRound(player, computer);
+                }
+
+                return result;                
             }
         </script>
     </body>
